@@ -44,5 +44,6 @@ def api_root(request):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', api_root, name='api_root'),
-    path('', include(router.urls)),
+    # Expose the DRF router under /api/ so frontend can call /api/<resource>/
+    path('api/', include(router.urls)),
 ]
